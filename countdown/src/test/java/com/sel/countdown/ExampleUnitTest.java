@@ -1,4 +1,4 @@
-package com.shuai.countdown;
+package com.sel.countdown;
 
 import org.junit.Test;
 

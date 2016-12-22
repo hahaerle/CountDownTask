@@ -1,6 +1,6 @@
 package sel.countdown.example;
 
-import com.shuai.countdown.CountDownObject;
+import com.sel.countdown.CountDownObject;
 
 import java.io.Serializable;
 

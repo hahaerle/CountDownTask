@@ -7,8 +7,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 
-import com.shuai.countdown.Constants;
-import com.shuai.countdown.TimeHelper;
+import com.sel.countdown.Constants;
+import com.sel.countdown.TimeHelper;
 
 import java.util.ArrayList;
 import java.util.List;

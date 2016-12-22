@@ -1,16 +1,16 @@
 package sel.countdown.example;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.shuai.countdown.ICountDownTask;
-import com.shuai.countdown.TimeHelper;
+import com.sel.countdown.ICountDownTask;
+import com.sel.countdown.TimeHelper;
 
 import java.util.Date;
-import java.util.UUID;
 
 /**
  * Created by shangerle on 16/12/21.
@@ -43,21 +43,20 @@ public class ViewListItem extends LinearLayout {
             periodDesc= (TextView) view.findViewById(R.id.periodDesc);
         }
     }
-    private UUID uuid;
+    private String lastTaskId;
     public void bindData(ExampleData data){
-        if(uuid!=null) {
+        if(!TextUtils.isEmpty(lastTaskId)) {
             /**
              * 移除任务
              */
-            TimeHelper.getInstances().removeTask(uuid.toString());
+            TimeHelper.getInstances().removeTask(lastTaskId);
         }
-        uuid=UUID.randomUUID();
         periodDesc.setText(data.getDesc());
         updateCountTime();
         /**
          * 加入任务队列
          */
-        TimeHelper.getInstances().putTask(uuid.toString(), new ICountDownTask(data.getPeriod()) {
+        lastTaskId =TimeHelper.getInstances().putTask(new ICountDownTask(data.getPeriod()) {
             @Override
             public void onRefresh() {
                 updateCountTime();

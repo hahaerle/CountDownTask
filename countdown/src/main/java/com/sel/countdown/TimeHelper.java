@@ -1,7 +1,8 @@
-package com.shuai.countdown;
+package com.sel.countdown;
 
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -69,6 +70,18 @@ public class TimeHelper {
      */
     public void putTask(String taskId, ICountDownTask iCountDownTask, long duration) {
         countDownSession.addTask(taskId,iCountDownTask,duration);
+    }
+
+    /**
+     * 直接传入task，返回taskId
+     * @param iCountDownTask
+     * @param duration
+     * @return
+     */
+    public String putTask(ICountDownTask iCountDownTask, long duration) {
+        String taskId= UUID.randomUUID().toString();
+        countDownSession.addTask(taskId,iCountDownTask,duration);
+        return taskId;
     }
     public void removeTask(String taskId){
         countDownSession.removeTask(taskId);
