@@ -32,11 +32,13 @@
    TimeHelper.getInstances().removeTask(uuid.toString());
    
 #maven 引用
+<xml>
 <dependency>
   <groupId>com.sel.countdown</groupId>
   <artifactId>count_down</artifactId>
   <version>0.0.2</version>
   <type>pom</type>
 </dependency>
+</xml>
 #gradle引用
 compile 'com.sel.countdown:count_down:0.0.2'
