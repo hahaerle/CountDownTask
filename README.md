@@ -30,4 +30,13 @@
         }, duration);
    //移除任务
    TimeHelper.getInstances().removeTask(uuid.toString());
-
+   
+#maven 引用
+<dependency>
+  <groupId>com.sel.countdown</groupId>
+  <artifactId>count_down</artifactId>
+  <version>0.0.2</version>
+  <type>pom</type>
+</dependency>
+#gradle引用
+compile 'com.sel.countdown:count_down:0.0.2'
