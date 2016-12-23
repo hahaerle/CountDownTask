@@ -1,8 +1,8 @@
 # CountDownTask
 用于android平台倒计时的一个项目
 项目维护一个任务列表，开启一个timer，每秒循环一次任务列表
-# 每个任务有两个关键字段，周期period，时长duration
-# 基础类 TimeHelper
+__每个任务有两个关键字段，周期period，时长duration__
+___基础类 TimeHelper___
   TimeHelper.init();//项目初始化
   TimeHelper.release();//项目释放
   
