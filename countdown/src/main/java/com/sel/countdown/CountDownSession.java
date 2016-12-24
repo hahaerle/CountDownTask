@@ -7,6 +7,7 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Created by shangerle on 16/12/7.
@@ -19,7 +20,7 @@ public class CountDownSession implements Serializable {
     }
 
     private static final int WHAT_AUTO_REMOVE_TASK = 1001 ;
-    private Map<String,ICountDownTask> list=new HashMap<>();
+    private ConcurrentHashMap<String,ICountDownTask> list=new ConcurrentHashMap<>();
     private WeakRefHandler taskHandle = new _Handler(this);
 
     private static class _Handler extends WeakRefHandler<CountDownSession> {
