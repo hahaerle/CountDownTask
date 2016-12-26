@@ -4,10 +4,10 @@ import android.os.Bundle;
 import android.os.Message;
 
 import java.io.Serializable;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import com.sel.countdown.WeakRefHandler;
 
 /**
  * Created by shangerle on 16/12/7.
@@ -39,13 +39,20 @@ public class CountDownSession implements Serializable {
             }
         }
     }
+
+    /**
+     *
+     * @param taskId
+     * @param task
+     * @param duration 秒
+     */
     public void addTask(String taskId, ICountDownTask task, long duration){
         list.put(taskId,task);
         Bundle bundle=new Bundle();
         bundle.putString("taskId", taskId);
         Message message=taskHandle.obtainMessage(WHAT_AUTO_REMOVE_TASK);
         message.setData(bundle);
-        taskHandle.sendMessageDelayed(message,duration);
+        taskHandle.sendMessageDelayed(message,duration*1000);
     }
     public void removeTask(String taskId){
         removeTask(taskId,false);
